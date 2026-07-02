@@ -80,32 +80,43 @@ with tab_visualize:
     st.header("Markdown Validation and Preview")
     st.write("Review, edit, or paste Markdown structures directly to audit the rendered output in real-time.")
     
+    # Initialize session state for the text editor if it doesn't exist
+    if 'editor_content' not in st.session_state:
+        st.session_state['editor_content'] = ""
+
     md_upload = st.file_uploader("Select a Markdown (.md) file to preview", type=["md"], key="md_uploader")
     
-    # Establish the base content stream
-    initial_content = ""
-    if md_upload is not None:
-        initial_content = md_upload.getvalue().decode('utf-8')
-    elif 'generated_md' in st.session_state:
-        initial_content = st.session_state['generated_md']
-        st.info("Displaying the most recently converted document.")
+    # Button to explicitly load the file content into the text area
+    if st.button("📥 Load File Content into Editor"):
+        if md_upload is not None:
+            st.session_state['editor_content'] = md_upload.getvalue().decode('utf-8')
+            st.success("Uploaded file content loaded!")
+        elif 'generated_md' in st.session_state:
+            st.session_state['editor_content'] = st.session_state['generated_md']
+            st.success("Loaded the most recently converted document!")
+        else:
+            st.warning("Please upload a .md file or convert a PDF first.")
         
     st.divider()
     col_raw, col_rendered = st.columns(2)
     
     with col_raw:
         st.subheader("Raw Markdown Output")
-        # Assigning the widget output to a variable enables dynamic rendering on change
-        live_content = st.text_area(
+        
+        # Binding the text area directly to the session state key "editor_content"
+        st.text_area(
             "Source Code", 
-            value=initial_content, 
-            height=600, 
+            height=535, 
             label_visibility="collapsed",
-            key="markdown_editor"
+            key="editor_content"
         )
+        
+        # A button to force Streamlit to refresh the UI and render the latest typed text
+        st.button("🔄 Render / Update Visualization")
         
     with col_rendered:
         st.subheader("Rendered Document")
         with st.container(height=600, border=True):
-            if live_content:
-                st.markdown(live_content)
+            # Render whatever is currently stored in the session state
+            if st.session_state['editor_content']:
+                st.markdown(st.session_state['editor_content'])
