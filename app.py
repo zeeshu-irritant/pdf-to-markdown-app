@@ -5,7 +5,7 @@ import os
 from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling_core.types.doc import ImageRefMode
 from docling.datamodel.base_models import InputFormat
-from docling.datamodel.pipeline_options import PdfPipelineOptions
+from docling.datamodel.pipeline_options import PdfPipelineOptions, TesseractCliOcrOptions
 
 # Set Page Configuration
 st.set_page_config(
@@ -50,6 +50,9 @@ with tab_convert:
                         
                         pipeline_options = PdfPipelineOptions()
                         pipeline_options.generate_picture_images = True 
+
+                        # Tell Docling to use Tesseract OCR to bypass the RapidOCR read-only bug
+                        pipeline_options.ocr_options = TesseractCliOcrOptions()
                         
                         converter = DocumentConverter(
                             format_options={
