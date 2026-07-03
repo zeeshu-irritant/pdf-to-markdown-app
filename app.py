@@ -14,84 +14,13 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Inject CSS for Premium Glassmorphism Styling
-st.markdown("""
-    <style>
-    /* Modern Dark Gradient Background for the entire app */
-    .stApp {
-        background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-        color: #ffffff;
-    }
-    
-    /* Frosted Glass effect for the main container */
-    [data-testid="block-container"] {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 3rem;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
-    
-    /* Premium Styling for Tabs */
-    .stTabs [data-baseweb="tab-list"] {
-        background-color: rgba(0, 0, 0, 0.2);
-        border-radius: 12px;
-        padding: 5px;
-        gap: 10px;
-    }
-    .stTabs [data-baseweb="tab"] {
-        font-size: 16px; 
-        font-weight: 600; 
-        padding: 10px 20px; 
-        border-radius: 8px;
-        color: #a1a1aa;
-        background-color: transparent;
-        border: none;
-    }
-    .stTabs [aria-selected="true"] {
-        background-color: rgba(255, 255, 255, 0.15);
-        color: white;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
+# Helper function to modularize CSS loading
+def load_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-    /* Glassmorphic Buttons with Hover Animations */
-    .stButton>button {
-        width: 100%; 
-        border-radius: 10px; 
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: white; 
-        font-weight: 600; 
-        height: 45px;
-        transition: all 0.3s ease;
-    }
-    .stButton>button:hover {
-        background: rgba(255, 255, 255, 0.25);
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        color: white;
-    }
-    
-    /* Transparent input fields and file uploaders */
-    [data-testid="stFileUploadDropzone"], .stTextArea textarea {
-        background-color: rgba(0, 0, 0, 0.2) !important;
-        border: 1px dashed rgba(255, 255, 255, 0.3) !important;
-        color: white !important;
-        border-radius: 12px;
-    }
-    
-    /* Force text colors to contrast against the dark background */
-    h1, h2, h3, p, label, .stMarkdown {
-        color: #f8fafc !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
+# Inject external CSS for Premium Glassmorphism Styling
+load_css("style.css")
 
 st.title("PDF to Markdown Conversion Workspace")
 st.write("Enterprise-grade document extraction utilizing IBM DocLayNet. This utility converts PDF documents into structured Markdown while preserving layouts, tables, and embedding images.")
