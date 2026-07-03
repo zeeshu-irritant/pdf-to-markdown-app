@@ -1,140 +1,131 @@
-/* =========================================
-   ULTRA-PREMIUM GLASSMORPHISM THEME
-   ========================================= */
-
-/* Base Aurora Mesh Gradient (Soft, subtle, classy) */
+/* Vibrant, Soft, and Elegant Light Gradient */
+/* A subtle blend of soft periwinkle and airy blue */
 .stApp {
-    background-color: #0b0d12;
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(45, 62, 110, 0.4) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(76, 45, 109, 0.3) 0px, transparent 50%);
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
     background-attachment: fixed;
-    color: #f1f5f9;
+    color: #0f172a;
 }
 
-/* Main Container Glass Effect */
+/* Main Container Glass Effect (Frosted White) */
 [data-testid="block-container"] {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     padding: 2.5rem 3.5rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
-/* =========================================
-   FIXING CONTRAST: FILE UPLOADER & INPUTS
-   ========================================= */
-
-/* The Dropzone Background */
+/* Target the dropzone to match the light glass aesthetic */
 [data-testid="stFileUploadDropzone"] {
-    background-color: rgba(255, 255, 255, 0.02) !important;
-    border: 1px dashed rgba(255, 255, 255, 0.2) !important;
-    border-radius: 16px;
-    padding: 2rem !important;
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    border: 1.5px dashed rgba(15, 23, 42, 0.2) !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
     transition: all 0.3s ease;
 }
+
 [data-testid="stFileUploadDropzone"]:hover {
-    background-color: rgba(255, 255, 255, 0.05) !important;
-    border-color: rgba(255, 255, 255, 0.4) !important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(15, 23, 42, 0.4) !important;
 }
 
-/* Aggressively force all text inside the uploader to be visible */
-[data-testid="stFileUploadDropzone"] * {
-    color: #f1f5f9 !important;
+/* Force all text inside the uploader to be dark slate for readability */
+[data-testid="stFileUploadDropzone"] *,
+[data-testid="stFileUploadDropzone"] span,
+[data-testid="stFileUploadDropzone"] small,
+[data-testid="stFileUploadDropzone"] div {
+    color: #1e293b !important;
 }
 
-/* Target the hidden "Browse files" button specifically */
+/* Style the internal "Browse files" button */
 [data-testid="stFileUploadDropzone"] button {
-    background: rgba(255, 255, 255, 0.1) !important;
-    color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid rgba(15, 23, 42, 0.1) !important;
     border-radius: 50px !important;
     padding: 0.5rem 1.5rem !important;
-    font-weight: 500 !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s ease;
 }
 [data-testid="stFileUploadDropzone"] button:hover {
-    background: rgba(255, 255, 255, 0.2) !important;
-    border-color: rgba(255, 255, 255, 0.4) !important;
+    background: #f8fafc !important;
+    border-color: rgba(15, 23, 42, 0.3) !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1) !important;
 }
-
-/* Text Area (Raw Markdown editor) */
-.stTextArea textarea {
-    background-color: rgba(0, 0, 0, 0.3) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    color: #e2e8f0 !important;
-    border-radius: 12px;
-    font-family: monospace;
-    box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
-}
-.stTextArea textarea:focus {
-    border-color: rgba(255, 255, 255, 0.3) !important;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
-}
-
-/* =========================================
-   3D GLASS PILL BUTTONS & TABS
-   ========================================= */
 
 /* 3D Glass Pill Tabs */
 .stTabs [data-baseweb="tab-list"] {
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(255, 255, 255, 0.4);
     border-radius: 50px;
     padding: 6px;
     gap: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
 }
 .stTabs [data-baseweb="tab"] {
     font-size: 15px; 
     font-weight: 600; 
     padding: 10px 24px; 
     border-radius: 50px;
-    color: #94a3b8;
+    color: #64748b;
     background-color: transparent;
     border: none;
     transition: all 0.3s ease;
 }
 .stTabs [aria-selected="true"] {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08), inset 0 1px 1px rgba(255,255,255,1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-/* Glass Pill Action Buttons */
+/* Main Action Buttons */
 .stButton>button {
     width: 100%; 
     border-radius: 50px; 
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: #ffffff !important; 
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: #0f172a !important; 
     font-weight: 600; 
     letter-spacing: 0.5px;
     height: 48px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.15);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 1);
+    transition: all 0.3s ease;
 }
 .stButton>button:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 1);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.3);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,1);
 }
 
-/* =========================================
-   GLOBAL TEXT CONTRAST ENFORCEMENT
-   ========================================= */
+/* Text Area (Raw Markdown editor) */
+.stTextArea textarea {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    border: 1px solid rgba(15, 23, 42, 0.1) !important;
+    color: #0f172a !important;
+    border-radius: 12px;
+    font-family: monospace;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+}
+.stTextArea textarea:focus {
+    border-color: rgba(15, 23, 42, 0.3) !important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Global Text Contrast Enforcement (Dark Text for Light Theme) */
 h1, h2, h3, h4, p, label, .stMarkdown, span, div[data-testid="stMarkdownContainer"] > p {
-    color: #f1f5f9 !important;
+    color: #0f172a !important;
 }
 
 hr {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
     margin: 2em 0;
 }
